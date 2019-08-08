@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">LastFmV</string>
+    <string name="top_artists">Top Artists</string>
+    <string name="top_tracks">Top Tracks</string>
+    <string name="search_text">Search...</string>
+    <string name="playcount">Play Count</string>
+    <string name="minutes">Minutes</string>
+    <string name="empty_search">Empty search. Please, try again.</string>
+    <string name="error">Error. Please, try again.</string>
+</resources>

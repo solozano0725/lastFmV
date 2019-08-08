@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.0"
+    defaultConfig {
+        applicationId "com.valid.lastfmclient"
+        minSdkVersion 16
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "USERDEFAULT", "\"solozano\""
+        buildConfigField "int", "LIMIT", "100"
+        buildConfigField "String", "LANG", "\"&language=en-US\""
+        buildConfigField "String", "LENG", "\"en-US\""
+        buildConfigField "String", "BASEURL", "\"http://ws.audioscrobbler.com/2.0/\""
+        buildConfigField "String", "KEYAPI", "\"829751643419a7128b7ada50de590067\""
+        buildConfigField "int", "CACHETIME", "432000"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+def butterknifeVersion = "10.0.0"
+def retrofitVersion = "2.5.0"
+def rxJavaVersion = "2.1.0"
+def rxAndroidVersion = "2.0.1"
+def daggerVersion = "2.11"
+def glideVersion = "3.8.0"
+def convertScalar = "2.0.2"
+def logger = "2.1.1"
+def interceptorLogger = "3.9.1"
+def rxCompile = "2.4.0"
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    testImplementation 'junit:junit:4.12'
+    //OKHTTP3
+    implementation"com.squareup.okhttp3:okhttp:4.0.1"
+    //Butterknife
+    implementation "com.jakewharton:butterknife:${butterknifeVersion}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+    //Retrofit2
+    implementation "com.squareup.retrofit2:retrofit:2.5.0"
+
+    //implementation "'com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rxCompile}"
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:converter-scalars:${convertScalar}"
+    implementation "com.orhanobut:logger:${logger}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${interceptorLogger}"
+    //RxJava RxAndroid
+    implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+    implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    // Dagger2
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+    // Glide
+    implementation "com.github.bumptech.glide:glide:${glideVersion}"
+
+    //Splash
+    implementation 'com.github.ViksaaSkool:AwesomeSplash:v1.0.0'
+
+    //VegaRecyclerView
+    implementation 'com.stone.vega.library:VegaLayoutManager:1.0.6'
+
+    //ZLayoutManager Recycler
+    implementation 'com.github.mcxtzhang:ZLayoutManager:V1.1.0'
+
+    //MaterialSearchBar
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+    implementation 'com.google.android.material:material:1.0.0'
+}
